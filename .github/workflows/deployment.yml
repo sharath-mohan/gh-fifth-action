@@ -1,6 +1,6 @@
 name: Deployment
 env:
-  VITE_API_URI: https://swapi.dev/api/people
+  VITE_API_URI: https://swapi.dev/api/peopl
 on:
   workflow_dispatch:
   push:

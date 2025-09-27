@@ -6,6 +6,7 @@ on:
       - main
 jobs:
   test:
+    environment: dev
     env:
       VITE_API_URI: ${{ secrets.VITE_API_URI}}
     runs-on: ubuntu-latest

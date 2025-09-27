@@ -1,11 +1,15 @@
-name: Deploymennt
+name: Deployment
+env:
+  VITE_API_URI: https://swapi.dev/api/people
 on:
   workflow_dispatch:
   push:
     branches:
       - main
 jobs:
-  deploy:
+  test:
+    env:
+      VITE_API_URI: https://swapi.dev/api/people
     runs-on: ubuntu-latest
     steps:
       - name: Clone Project
@@ -14,15 +18,22 @@ jobs:
         uses: pnpm/action-setup@v4
         with:
           version: 10
-      - name: Cache Dependencies
-        uses: actions/cache@v4
-        id: cache
-        with:
-          path: ~/.setup-pnpm
-          key: ${{ hashFiles('**pnpm-lock.yaml')}}
       - name: Install Dependencies
         run: pnpm install
-      - name: return path
-        run: pnpm store path
-      - name: Build Project
-        run: pnpm build
+      - name: test the project
+        run: pnpm run test
+#   deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Clone Project
+#         uses: actions/checkout@v5
+#       - name: Install pnpm
+#         uses: pnpm/action-setup@v4
+#         with:
+#           version: 10
+#       - name: Install Dependencies
+#         run: pnpm install
+#       - name: return path
+#         run: pnpm store path
+#       - name: Build Project
+#         run: pnpm build

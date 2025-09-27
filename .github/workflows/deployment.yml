@@ -7,7 +7,7 @@ on:
 jobs:
   test:
     env:
-      VITE_API_URI: https://swapi.dev/api/peop
+      VITE_API_URI: ${{ secrets.VITE_API_URI}}
     runs-on: ubuntu-latest
     steps:
       - name: Clone Project

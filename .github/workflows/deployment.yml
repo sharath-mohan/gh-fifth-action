@@ -1,6 +1,4 @@
 name: Deployment
-env:
-  VITE_API_URI: https://swapi.dev/api/peopl
 on:
   workflow_dispatch:
   push:
@@ -9,7 +7,7 @@ on:
 jobs:
   test:
     env:
-      VITE_API_URI: https://swapi.dev/api/people
+      VITE_API_URI: https://swapi.dev/api/peop
     runs-on: ubuntu-latest
     steps:
       - name: Clone Project
